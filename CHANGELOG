@@ -1,4 +1,10 @@
-1.0.0
+0.1.1
+-----
+
+- Add `get_accounts` for `eth_accounts` endpoint
+- Add `get_block_number` for `eth_blockNumber` endpoint
+
+0.1.0
 -----
 
 - Initial release
