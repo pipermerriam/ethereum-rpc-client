@@ -119,6 +119,13 @@ class Client(object):
         response = self.make_rpc_request("eth_getTransactionReceipt", [txn_hash])
         return response['result']
 
+    def get_transaction_by_hash(self, txn_hash):
+        """
+        https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_gettransactionbyhash
+        """
+        response = self.make_rpc_request("eth_getTransactionByHash", [txn_hash])
+        return response['result']
+
     def get_block_number(self):
         """
         https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_blocknumber<F37>
@@ -127,5 +134,8 @@ class Client(object):
         return int(response['result'], 16)
 
     def get_accounts(self):
+        """
+        https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_accounts
+        """
         response = self.make_rpc_request("eth_accounts", [])
         return response['result']
