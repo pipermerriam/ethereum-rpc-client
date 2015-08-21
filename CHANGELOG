@@ -1,3 +1,8 @@
+0.1.2
+-----
+
+- Add `get_transaction_by_hash` method.
+
 0.1.1
 -----
 
