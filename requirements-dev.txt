@@ -2,6 +2,4 @@ pytest==2.6.3
 pytest-pythonpath==0.3
 ethereum==0.9.73
 tox==1.8.0
-# Until https://github.com/ConsenSys/eth-testrpc/pull/16 is merged and
-# released.
-https://github.com/pipermerriam/eth-testrpc/archive/v0.1.15b.tar.gz
+eth-testrpc==0.1.16
