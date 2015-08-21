@@ -26,3 +26,10 @@ def rpc_server():
 
     server.shutdown()
     server.server_close()
+
+
+@pytest.fixture()
+def rpc_client():
+    from eth_rpc_client import Client
+    client = Client('127.0.0.1', '8545')
+    return client
