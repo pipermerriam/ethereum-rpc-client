@@ -94,3 +94,39 @@ found.
 * **gasUsed**: The amount of gas used by this specific transaction alone.
 * **contractAddress**: The contract address created, if the transaction was a contract creation, otherwise null.
 * **logs**: list of log objects, which this transaction generated
+
+
+### `Client.get_transaction_by_hash(txn_hash)`
+
+> https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_gettransactionbyhash
+
+* **txn_hash**: The hex encoded transaction hash to lookup.
+
+Returns a dictionary of the transaction values or `None` if no transaction is
+found.
+
+    * **hash**: DATA, 32 Bytes - hash of the transaction.
+    * **nonce**: QUANTITY - the number of transactions made by the sender prior to this one.
+    * **blockHash**: DATA, 32 Bytes - hash of the block where this transaction was in. null when its pending.
+    * **blockNumber**: QUANTITY - block number where this transaction was in. null when its pending.
+    * **transactionIndex**: QUANTITY - integer of the transactions index position in the block. null when its pending.
+    * **from**: DATA, 20 Bytes - address of the sender.
+    * **to**: DATA, 20 Bytes - address of the receiver. null when its a contract creation transaction.
+    * **value**: QUANTITY - value transferred in Wei.
+    * **gasPrice**: QUANTITY - gas price provided by the sender in Wei.
+    * **gas**: QUANTITY - gas provided by the sender.
+    * **input**: DATA - the data send along with the transaction.
+
+
+### `Client.get_block_number()`
+
+> https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_blocknumber
+
+Returns the number of the most recent block.
+
+
+### `Client.get_accounts()`
+
+> https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_accounts
+
+Returns a list of the addresses owned by the client.
