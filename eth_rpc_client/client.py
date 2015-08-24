@@ -23,7 +23,7 @@ def get_transaction_params(_from=None, to=None, gas=None, gas_price=None,
         params['gasPrice'] = hex(gas_price)
 
     if value is not None:
-        params['value'] = hex(value)
+        params['value'] = hex(value).rstrip('L')
 
     if data is not None:
         params['data'] = data
