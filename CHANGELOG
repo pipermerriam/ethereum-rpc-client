@@ -1,3 +1,9 @@
+0.1.3
+-----
+
+- Fix hex encoding of `value` in transactino params.
+- Pull `from` value from defaults when using the `call` method.
+
 0.1.2
 -----
 
