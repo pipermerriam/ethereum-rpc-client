@@ -92,6 +92,9 @@ class Client(object):
         """
         https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_call
         """
+        if _from is None:
+            _from = self.defaults.get('from')
+
         params = [
             get_transaction_params(_from, to, gas, gas_price, value, data),
             block,
