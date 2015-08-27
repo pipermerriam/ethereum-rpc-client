@@ -34,15 +34,18 @@ def get_transaction_params(_from=None, to=None, gas=None, gas_price=None,
 class Client(object):
     _nonce = 0
 
-    def __init__(self, host, port, defaults=None):
+    def __init__(self, host, port):
         self.host = host
         self.port = port
-        self.defaults = defaults or {}
         self.session = requests.session()
 
     def get_nonce(self):
         self._nonce += 1
         return self._nonce
+
+    @property
+    def default_from_address(self):
+        return self.get_coinbase()
 
     def make_rpc_request(self, method, params):
         response = self.session.post(
@@ -93,7 +96,7 @@ class Client(object):
         https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_call
         """
         if _from is None:
-            _from = self.defaults.get('from')
+            _from = self.default_from_address
 
         params = [
             get_transaction_params(_from, to, gas, gas_price, value, data),
@@ -108,7 +111,7 @@ class Client(object):
         https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_sendtransaction
         """
         if _from is None:
-            _from = self.defaults.get('from')
+            _from = self.default_from_address
 
         params = get_transaction_params(_from, to, gas, gas_price, value, data)
 
