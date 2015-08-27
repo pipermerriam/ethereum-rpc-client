@@ -1,3 +1,9 @@
+0.2.0
+-----
+
+- Default calls to `call()` and `send_transaction()` to be from the coinbase
+  address if no address is specified for the `from` address.
+
 0.1.3
 -----
 
