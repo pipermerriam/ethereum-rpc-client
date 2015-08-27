@@ -19,6 +19,21 @@ def test_send_a_transaction(rpc_server, eth_coinbase):
     assert after_balance == 1000004999999999999987655L
 
 
+def test_send_a_transaction_uses_coinbase_as_from(rpc_server, eth_coinbase):
+    client = Client('127.0.0.1', '8545')
+
+    to_addr = tester.encode_hex(tester.accounts[1])
+
+    txn_hash = client.send_transaction(
+        to=to_addr,
+        value=12345,
+    )
+
+    after_balance = client.get_balance(eth_coinbase)
+
+    assert after_balance == 1000004999999999999987655L
+
+
 def test_contract_creation(rpc_server, eth_coinbase):
     client = Client('127.0.0.1', '8545')
 
