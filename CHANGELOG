@@ -1,3 +1,8 @@
+0.2.2
+-----
+
+- Fix the `get_block_by_number` and `get_block_by_hash` methods.
+
 0.2.1
 -----
 
