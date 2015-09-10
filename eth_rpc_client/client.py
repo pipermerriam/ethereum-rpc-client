@@ -1,4 +1,5 @@
 import json
+import numbers
 import requests
 
 
@@ -139,18 +140,24 @@ class Client(object):
         response = self.make_rpc_request("eth_blockNumber", [])
         return int(response['result'], 16)
 
-    def get_block_by_hash(self, block_hash):
+    def get_block_by_hash(self, block_hash, full_transactions=True):
         """
         https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_getblockbyhash
         """
-        response = self.make_rpc_request("eth_getBlockByHash", [block_hash])
+        response = self.make_rpc_request("eth_getBlockByHash", [block_hash, full_transactions])
         return response['result']
 
-    def get_block_by_number(self, block_number):
+    def get_block_by_number(self, block_number, full_transactions=True):
         """
         https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_getblockbynumber
         """
-        response = self.make_rpc_request("eth_getBlockByNumber", [block_number])
+        if isinstance(block_number, numbers.Number):
+            block_number_as_hex = hex(block_number)
+        else:
+            block_number_as_hex = block_number
+        response = self.make_rpc_request(
+            "eth_getBlockByNumber", [block_number_as_hex, full_transactions],
+        )
         return response['result']
 
     def get_accounts(self):
