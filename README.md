@@ -26,7 +26,7 @@ Assuming you have an Ethereum node running the JSON RPC server on `localhost:845
 
 ```python
 >>> from eth_rpc_client import Client
->>> client = Client(host="127.0.0.1", port="8454")
+>>> client = Client(host="127.0.0.1", port="8545")
 >>> client.get_coinbase()
 ... '0xd3cda913deb6f67967b99d67acdfa1712c293601'
 ```
