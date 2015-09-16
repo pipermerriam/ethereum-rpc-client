@@ -1,3 +1,9 @@
+0.3.0
+-----
+
+- Change default port from `8454` to `8545` as it is in the official JSON-RPC
+  spec.  (credit void4)
+
 0.2.2
 -----
 
