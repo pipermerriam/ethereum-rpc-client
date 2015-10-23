@@ -130,3 +130,22 @@ Returns the number of the most recent block.
 > https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_accounts
 
 Returns a list of the addresses owned by the client.
+
+
+## Helpers
+
+### `Client.get_max_gas()`
+
+Returns the gas limit from the latest block
+
+
+### `Client.wait_for_transaction(txn_hash, max_wait=60)`
+
+Blocks for up to `max_wait` seconds, polling for the transaction receipt for
+the provided `txn_hash`.  Returns the transaction hash.
+
+
+### `Client.wait_for_block(block_number, max_wait=60)`
+
+Blocks for up to `max_wait` seconds, polling the rpc server until the block
+specified by `block_number` is seen.  Returns the block.

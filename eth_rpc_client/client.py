@@ -2,6 +2,12 @@ import json
 import numbers
 import requests
 
+from eth_rpc_client.utils import (
+    wait_for_transaction,
+    wait_for_block,
+    get_max_gas,
+)
+
 
 def get_transaction_params(_from=None, to=None, gas=None, gas_price=None,
                            value=0, data=None):
@@ -166,3 +172,7 @@ class Client(object):
         """
         response = self.make_rpc_request("eth_accounts", [])
         return response['result']
+
+    get_max_gas = get_max_gas
+    wait_for_transaction = wait_for_transaction
+    wait_for_block = wait_for_block
