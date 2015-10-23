@@ -1,5 +1,1 @@
-click>=5.0
-https://github.com/ethereum/ethash/archive/v23.1.tar.gz
-ethereum>=0.9.73
 requests>=2.7.0
-pytest==2.7.2
