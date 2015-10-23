@@ -1,6 +1,12 @@
 0.3.0
 -----
 
+- Add `wait_for_transaction`, `wait_for_block` and `get_max_gas` helpers.
+- Update testing requirements.
+
+0.3.0
+-----
+
 - Change default port from `8454` to `8545` as it is in the official JSON-RPC
   spec.  (credit void4)
 

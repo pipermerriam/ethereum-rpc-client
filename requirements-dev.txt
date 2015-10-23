@@ -1,5 +1,5 @@
-pytest==2.6.3
-pytest-pythonpath==0.3
-ethereum==0.9.73
-tox==1.8.0
-eth-testrpc==0.1.16
+pytest>=2.8.2
+pytest-pythonpath>=0.3
+eth-testrpc>=0.1.17
+ethereum>=1.0.6
+tox>=1.8.0
