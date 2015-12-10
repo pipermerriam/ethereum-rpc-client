@@ -132,6 +132,41 @@ Returns the number of the most recent block.
 Returns a list of the addresses owned by the client.
 
 
+### `Client.new_filter(from_block=None, to_block=None, address=None, topics=None)`
+
+> https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_newfilter
+
+
+### `Client.new_block_filter()`
+
+> https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_newblockfilter
+
+
+### `Client.new_pending_transaction_filter()`
+
+> https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_newpendingtransactionfilter
+
+
+### `Client.uninstall_filter(filter_id)`
+
+> https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_uninstallFilter
+
+
+### `Client.get_filter_changes(filter_id)`
+
+> https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_getfilterchanges
+
+
+### `Client.get_filter_logs(filter_id)`
+
+> https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_getfilterlogs
+
+
+### `Client.get_logs(from_block=None, to_block=None, address=None, topics=None)`
+
+> https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_getlogs
+
+
 ## Helpers
 
 ### `Client.get_max_gas()`
