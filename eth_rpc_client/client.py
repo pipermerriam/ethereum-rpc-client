@@ -38,6 +38,20 @@ def get_transaction_params(_from=None, to=None, gas=None, gas_price=None,
     return params
 
 
+def construct_filter_args(from_block=None, to_block=None, address=None,
+                          topics=None):
+    params = {}
+    if from_block is not None:
+        params["fromBlock"] = from_block
+    if to_block is not None:
+        params["toBlock"] = to_block
+    if address is not None:
+        params["address"] = address
+    if topics is not None:
+        params["topics"] = topics
+    return(params)
+
+
 class Client(object):
     _nonce = 0
 
@@ -176,3 +190,72 @@ class Client(object):
     get_max_gas = get_max_gas
     wait_for_transaction = wait_for_transaction
     wait_for_block = wait_for_block
+
+    def new_filter(self, from_block=None, to_block=None, address=None, topics=None):
+        """
+        https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_newfilter
+        Create a new filter object to be notified of changes in the
+        state of the EVM through the logs.
+        This command returns a filter ID that can be referenced by
+        other commands to get log information.
+        """
+        params = construct_filter_args(from_block, to_block, address, topics)
+        response = self.make_rpc_request("eth_newFilter", [params])
+        return(response['result'])
+
+    def new_block_filter(self):
+        """
+        https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_newblockfilter
+        """
+        response = self.make_rpc_request("eth_newBlockFilter", [])
+        return(response['result'])
+
+    def new_pending_transaction_filter(self):
+        """
+        https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_newpendingtransactionfilter
+        """
+        response = self.make_rpc_request("eth_newPendingTransactionFilter", [])
+        return(response['result'])
+
+    def uninstall_filter(self, filter_id):
+        """
+        https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_uninstallfilter
+        Removes a filter by ID
+        """
+        if isinstance(filter_id, numbers.Number):
+            filt_hex = hex(filter_id)
+        else:
+            filt_hex = filter_id
+
+        response = self.make_rpc_request("eth_uninstallFilter", [filt_hex])
+        return(response['result'])
+
+    def get_filter_changes(self, filter_id):
+        """
+        https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_getfilterchanges
+        """
+        if isinstance(filter_id, numbers.Number):
+            filt_hex = hex(filter_id)
+        else:
+            filt_hex = filter_id
+        response = self.make_rpc_request("eth_getFilterChanges", [filt_hex])
+        return(response['result'])
+
+    def get_filter_logs(self, filter_id):
+        """
+        https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_getfilterlogs
+        """
+        if isinstance(filter_id, numbers.Number):
+            filt_hex = hex(filter_id)
+        else:
+            filt_hex = filter_id
+        response = self.make_rpc_request("eth_getFilterLogs", [filt_hex])
+        return(response['result'])
+
+    def get_logs(self, from_block=None, to_block=None, address=None, topics=None):
+        """
+        https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_getlogs
+        """
+        params = construct_filter_args(from_block, to_block, address, topics)
+        response = self.make_rpc_request("eth_getLogs", [params])
+        return(response['result'])
