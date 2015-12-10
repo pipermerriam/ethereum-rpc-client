@@ -76,6 +76,16 @@ Returns the code at the given address.
 
 Returns the call response.
 
+### `Client.send_transaction(_from=None, to=None, gas=None, gas_price=None, value=0, data=None)
+
+https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_sendtransaction
+
+* **_from**: The hex encoded address to use as the source for the transaction.
+* **to**: The hex encoded address of the contract for the transaction.
+* **gas**: Integer gas alotment for the transaction.
+* **gas_price**: Integer gas price in wei.
+* **value**: Integer amount in wei to send with the transaction.
+* **data**: The transaction data.
 
 ### `Client.get_transaction_receipt(txn_hash)`
 
