@@ -26,6 +26,7 @@ setup(
     py_modules=['ethereum_rpc_client'],
     install_requires=[
         "requests>=2.7.0",
+        "ethereum-client-utils>=0.3.0",
     ],
     license="MIT",
     zip_safe=False,
