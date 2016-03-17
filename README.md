@@ -2,9 +2,9 @@
 
 [![Build Status](https://travis-ci.org/pipermerriam/ethereum-rpc-client.png)](https://travis-ci.org/pipermerriam/ethereum-rpc-client)
 [![Documentation Status](https://readthedocs.org/projects/ethereum-rpc-client/badge/?version=latest)](https://readthedocs.org/projects/ethereum-rpc-client/?badge=latest)
-[![PyPi version](https://pypip.in/v/ethereum-rpc-client/badge.png)](https://pypi.python.org/pypi/ethereum-rpc-client)
-[![PyPi downloads](https://pypip.in/d/ethereum-rpc-client/badge.png)](https://pypi.python.org/pypi/ethereum-rpc-client)
-   
+[![PyPI](https://img.shields.io/pypi/v/ethereum-rpc-client.svg)](https://pypi.python.org/pypi/ethereum-rpc-client)
+[![PyPI](https://img.shields.io/pypi/dm/ethereum-rpc-client.svg)](https://pypi.python.org/pypi/ethereum-rpc-client)
+
 
 Python client for Ethereum JSON RPC Server
 
