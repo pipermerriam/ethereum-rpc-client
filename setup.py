@@ -26,7 +26,7 @@ setup(
     py_modules=['ethereum_rpc_client'],
     install_requires=[
         "requests>=2.7.0",
-        "ethereum-client-utils>=0.3.0",
+        "ethereum-client-utils>=0.3.1",
     ],
     license="MIT",
     zip_safe=False,
@@ -40,7 +40,6 @@ setup(
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
     ],
 )
